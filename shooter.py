@@ -77,7 +77,7 @@ class Statistics:
         return f'{self._st_point_win} {self._st_point_lose} {self._duration} {self._level}'
 
 
-def save_statistics(filename):
+def save_statistics(filename: str):
     with open(filename, 'w', encoding='UTF-8') as f:
         for row in stat:
             # print(type(row))
@@ -116,11 +116,11 @@ for i in range(1, 6):
 bullets = sprite.Group()
 
 
-stat = []
+stat: list = []
 # змінна "гра закінчилася": як тільки там True, в основному циклі перестають працювати спрайти
-finish = False
+finish: bool = False
 # основний цикл гри:
-run = True  # прапор скидається кнопкою закриття вікна
+run: bool = True  # прапор скидається кнопкою закриття вікна
 while run:
     # подія натискання на кнопку Закрити
     for e in event.get():

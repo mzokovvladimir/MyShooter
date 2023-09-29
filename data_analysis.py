@@ -1,21 +1,22 @@
 from setting import PATH_FILE_STAT
 import matplotlib.pyplot as plt
 import numpy as np
+from typing import List
 
 
-def read_file(filename):
+def read_file(filename: str) -> List[str]:
     with open(filename, encoding='UTF-8') as f:
         return f.readlines()
 
 
-my_data = read_file(PATH_FILE_STAT)
-total = [int(i.split()[0]) for i in my_data]
-missed = [int(i.split()[1]) for i in my_data]
-timer = [float(i.split()[2]) for i in my_data]
-level = [int(i.split()[3]) for i in my_data]
+my_data: List[int] = read_file(PATH_FILE_STAT)
+total: List[int] = [int(i.split()[0]) for i in my_data]
+missed: List[int] = [int(i.split()[1]) for i in my_data]
+timer: List[float] = [float(i.split()[2]) for i in my_data]
+level: List[int] = [int(i.split()[3]) for i in my_data]
 
-width = 0.4
-x_list = list(range(1, len(level) + 1))
+width: float = 0.4
+x_list: List[int] = list(range(1, len(level) + 1))
 y1_list = total
 y2_list = missed
 y3_list = timer
